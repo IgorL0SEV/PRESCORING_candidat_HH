@@ -1,7 +1,7 @@
 import requests
-
-import requests
 from bs4 import BeautifulSoup
+
+
 def get_html(url):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
@@ -64,4 +64,6 @@ def extract_resume_data(html):
     markdown += ", ".join(skills) if skills else "Навыки не указаны.\n"
     return markdown.strip()
 
-
+url = "https://hh.ru/resume/6407a072ff0ea071510039ed1f566b7068306e"
+html = get_html(url).text
+print(extract_resume_data(html))
